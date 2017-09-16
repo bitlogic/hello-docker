@@ -30,25 +30,27 @@ Now you're running the `mongo` command in the `db` container. Toy around and the
 
 If you now do `docker ps` you'll notice the `db` container is still running. It didn't stop because the main process, the `mongo` database process (with `pid 1`), is still running. The process you killed by quitting was just the mongo shell.
 
-Now let's connect to it from _another_ container.
+
+Now let's run a web app in _another_ container.
 
 ```
-docker pull bitlogicos/bitlogic-io
+docker container run --name webapp -d -P seqvence/static-site
 ```
 
-This will get you a very simple static app. Once it downloads, just:
+First, lets check if the app is running and which ports is exposing.
 
 ```
-docker run -d --name app bitlogicos/bitlogic-io
+docker container ps
 ```
+
 
 Now check if it did something:
 
 ```
-docker logs app
+docker logs webapp
 ```
 
-It seems the app is listening on port 3000. Let's browse to `localhost:3000`
+It seems the app is listening on port 80. Let's browse to `localhost:3000`
 
 🤔 it doesn't reach the app... Let's look closer:
 
@@ -56,40 +58,16 @@ It seems the app is listening on port 3000. Let's browse to `localhost:3000`
 docker ps -a
 ```
 
-As you can see under `PORTS`, it seems the app *is* listening in port 3000, but... 😮 Of course! That's just the container's _internal_ port! You need to *bind* the container port to a port in our host. So, kill this app container with `docker rm -f app` and let's create a new one properly.
+As you can see under `PORTS`, it seems the app *is* listening in port 80, but... 😮 Of course! That's just the container's _internal_ port! 
+
+By passing the `-P` parameter to the docker run command, docker has automatically binded an external port to expose the service. 
 
 ```
-docker run -d --name app -p 3000:3000 bitlogicos/bitlogic-io
+docker container ps
 ```
 
-Now check `localhost:3000` again.
+Check the outcome of the command and try to connect via browser to \\localhost:{->binded port}
 
-Ok, so we did manage to get there, but it seems it isn't reaching the DB. If you attach to the app container (with `docker exec`) and check the `index.js` file, you'll notice it's attempting to connect to a host named `db`. Our database container has that very same name. Then why isn't it reaching it?
-
-## Docker networks
-
-In order for a container to be visible to another one, they must both belong to the same _network_. Docker networks are virtual private network docker uses to connect containers safely and privately, as if they were real hosts in a real, physical network.
-
-Let's create a simple network:
-
-```
-docker network create app-network
-```
-
-Now let's check it out:
-
-```
-docker network ls
-```
-
-It seems all's in place. Let's connect our containers to that network.
-
-```
-docker network connect app-network db
-docker network connect app-network app
-```
-
-Now check `localhost:3000` one more time.
 
 😎🐳
 

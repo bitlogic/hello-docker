@@ -22,23 +22,23 @@ If you can see `Hello from Docker` on the screen, it means that Docker took the 
 Easy, right? Let's take a look at that container
 
 ```
-docker ps
+docker container ps
 ```
 
 🤔 not there... Let's add the `-a` flag
 
 ```
-docker ps -a
+docker container ps -a
 ```
 
-😀 there you are! The -a option list no only the `running` containers but also the containers that have been finished.  This might become handy if you want to examine them.
+😀 there you are! The -a option list not only the `running` containers but also the containers that have been finished.  This might become handy if you want to examine them.
 
 
 
 Now let's get serious. Let's run a full-fledged Ubuntu Linux:
 
-```bash
-docker run ubuntu:14.04
+```
+docker container run ubuntu:14.04
 ```
 
 (notice how we specified a version; more on that to come)
@@ -46,16 +46,18 @@ docker run ubuntu:14.04
 🤔 it looks like it downloaded something, but not sure what...
 
 ```
-docker ps -a
+docker ps -a 
 ```
 
 So it stops after it runs? Let's try something else:
 
 ```
-docker run -it ubuntu:14.04
+docker container run -it ubuntu:14.04
 ```
 
 Cool, we're inside the container! `-it` specifies you want to go into the interactive mode (TBH, `i` is interactive and `t` is for docker to allocate a pseudo TTY interface for the interaction)
+
+Can you guess What will happen if you delete the any important file inside the container? 
 
 After toying around just `exit`. Let's give it another look:
 
@@ -66,6 +68,7 @@ docker ps -a
 So the way containers work is that there is one single main process that gets assigned `pid 1`, which runs as the containers starts, and as soon as that process exits, the container is stopped, even if there were other processes running inside of it.
 
 You may also have noticed that the first time you ran `docker run ubuntu:14.04` it took a while, but the second time it was immediate. What really happened is that docker tried to run a container based on the `ubuntu:14.04` image, and since it didn't have it locally, it pulled it from the public repository. Which brings us to:
+
 
 ## Images
 
