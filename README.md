@@ -1,20 +1,18 @@
 # Docker Tutorial
 
-An entry level `docker` tutorial for anyone who wants to learn how to use docker effectively in their day-to-day dev work.
+An entry level `docker` 🐳 tutorial for anyone who wants to learn how to use docker effectively in their day-to-day dev work. 
 
-This repo attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
+This tutorial attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
+
+
 
 This is, of course, a continuous work in progress; so feel free to propose changes and spread the word. 
 
 Get started in the [`0-docker-basics`](https://github.com/bitlogic/hello-docker/tree/master/0-docker-basics) section.
 
-🐳
 
-# Requirements
 
-You'll need to have `docker 17.06` or later installed in your machine. Go ahead and [get the latest stable version here](https://docs.docker.com/engine/installation/)
 
-You may follow this repo almost entirely online with [`play-with-docker`](http://play-with-docker.com). If you need to access your services from outside, use the following URL pattern `http://ip<instance_ip>-<port>.play-with-docker.com` (i.e: http://ip10_2_135_3-80.play-with-docker.com/) Also, note that sessions there aren't permanent and your progress will get erased after some hours.
 
 # License
 
