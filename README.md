@@ -1,10 +1,10 @@
-# Docker workshop
+# Docker Tutorial
 
 An entry level `docker` tutorial for anyone who wants to learn how to use docker effectively in their day-to-day dev work.
 
-This repo attempts to drive you through the fundamentals and into some advanced topics like `docker-compose` or `docker's swarm mode`.
+This repo attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
 
-This is, of course, a continuous work in progress; so feel free to propose changes and spread the word.
+This is, of course, a continuous work in progress; so feel free to propose changes and spread the word. 
 
 Get started in the [`0-docker-basics`](https://github.com/bitlogic/hello-docker/tree/master/0-docker-basics) section.
 

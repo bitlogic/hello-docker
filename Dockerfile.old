@@ -1,0 +1,12 @@
+# Using a full fledge Ubuntu
+FROM ubuntu:14.04
+# Update all the libraries
+RUN apt-get update
+# Install NGINX
+RUN apt-get install -y nginx
+# Set the text we want to show the app
+RUN echo 'Hello, I am your container!!!!' > /usr/share/nginx/html/index.html
+# Start the ngnix
+CMD ["nginx", "-g", "daemon off;" ]
+# Expose port 80 in the container
+EXPOSE 80
