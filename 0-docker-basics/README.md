@@ -5,7 +5,7 @@
 
 The most fundamental part of `Docker` are *containers*. There's a lot to say about them, but let's just run one:
 
-```bash
+```docker
 docker container run hello-world
 ```
 
