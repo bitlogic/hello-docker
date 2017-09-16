@@ -37,6 +37,7 @@ docker container ps -a
 😀 there you are! The -a option list not only the `running` containers but also the containers that have been finished.  This might become handy if you want to examine them.
 
 
+
 ## Running a Container
 
 Now let's get serious. Let's run a full-fledged Ubuntu container:
@@ -69,6 +70,7 @@ After toying around just `exit`.
 So the way containers work is that there is one single main process that gets assigned `pid 1`, which runs as the containers starts, and as soon as that process exits, the container is stopped, even if there were other processes running inside of it.
 
 You may also have noticed that the first time you ran `docker run ubuntu:14.04` it took a while, but the second time it was immediate. What really happened is that docker tried to run a container based on the `ubuntu:14.04` image, and since it didn't have it locally, it pulled it from the public repository. 
+
 
 
 

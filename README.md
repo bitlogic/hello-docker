@@ -8,7 +8,7 @@ This tutorial attempts to drive you through the fundamentals and into some advan
 
 This is, of course, a continuous work in progress; so feel free to propose changes and spread the word. 
 
-Get started in the [`0-docker-basics`](https://github.com/bitlogic/hello-docker/tree/master/0-docker-basics) section.
+Get started in the [`0-orientation`](https://github.com/bitlogic/hello-docker/tree/master/0-orientation) section.
 
 
 

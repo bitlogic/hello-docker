@@ -77,4 +77,4 @@ In your everyday development workflow, you don't want to reinstall all dependenc
 
 Now You may publish this image by using the command `docker push`, but you'll need an account in [`hub.docker.com`](https://hub.docker.com); you can do that later on your own. 
 
-For now, let's [learn how to `docker-compose`](https://github.com/bitlogic/hello-docker/tree/master/3-docker-compose)
+For now, let's [learn how to create services](https://github.com/bitlogic/hello-docker/tree/master/3-running-services)
