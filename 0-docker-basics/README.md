@@ -1,21 +1,22 @@
 # Docker basics
 
+
 ## Containers
 
 The most fundamental part of `Docker` are *containers*. There's a lot to say about them, but let's just run one:
 
-```
-docker run hello-world
+```bash
+docker container run hello-world
 ```
 
 If you can see `Hello from Docker` on the screen, it means that Docker took the following steps:
+
  1. The Docker client contacted the Docker daemon.
  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
  3. The Docker daemon created a new container from that image which runs the
     executable that produces the output you are currently reading.
  4. The Docker daemon streamed that output to the Docker client, which sent it
     to your terminal.
-
 
 
 Easy, right? Let's take a look at that container
@@ -30,11 +31,13 @@ docker ps
 docker ps -a
 ```
 
-😀 there you are! 
+😀 there you are! The -a option list no only the `running` containers but also the containers that have been finished.  This might become handy if you want to examine them.
+
+
 
 Now let's get serious. Let's run a full-fledged Ubuntu Linux:
 
-```
+```bash
 docker run ubuntu:14.04
 ```
 
