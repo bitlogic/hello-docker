@@ -12,15 +12,17 @@ This message shows that your installation appears to be working correctly.
 ```
 Easy, right? Let's take a look at what has just happened behind the scenes...
 
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
- 3. The Docker daemon created a new container from that image which runs the
+ 1. The *Docker client* contacted the *Docker daemon*.
+ 2. The *Docker daemon* pulled the "hello-world" image from the *Docker Hub*.
+ 3. The *Docker daemon* created a new *container* from that image which runs the
     executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
+ 4. The *Docker daemon* streamed that output to the *Docker client*, which sent it
     to your terminal.
 
+Whoa!! So this really means that the whole *Docker Platform* is correctly setup and working.
 
-Lets check the container 
+
+Now lets start exploring ts check the container 
 
 ```
 docker container ps
@@ -35,7 +37,7 @@ docker container ps -a
 😀 there you are! The -a option list not only the `running` containers but also the containers that have been finished.  This might become handy if you want to examine them.
 
 
-## Hello Ubuntu
+## Running a Container
 
 Now let's get serious. Let's run a full-fledged Ubuntu container:
 
@@ -102,8 +104,7 @@ If you now do `docker ps` you'll notice the `db` container is still running. It 
 
 
 
-
-## Running my first WebApps
+## Exposing containers
 
 Now let's run a web app in _another_ container.
 
@@ -129,7 +130,7 @@ Check the outcome of the command and try to connect via browser to \\localhost:{
 Congratulations! You now have a web app runing inside a container and being exposed externally so users can enjoy it. 😎🐳
 
 
-## Logs
+## Docker Logs
 
 One of the benefits from docker is that they provide some standard interface for operating applications inside containers.  So lets check how to see the logs of an app running inside a cointainer.
 
@@ -141,7 +142,7 @@ So, first lets start a container in background.
 docker logs webapp
 ```
 
-## Clean up
+## Cleaning up containers
 
 OK,  we know how to start multiple containers so now its time to stop them. 
 

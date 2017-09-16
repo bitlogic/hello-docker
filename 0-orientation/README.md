@@ -25,7 +25,7 @@ Container stack example
 Containers can share a single kernel, and the only information that needs to be in a container image is the executable and its package dependencies, which never need to be installed on the host system. These processes run like native processes, and you can manage them individually by running commands like docker ps—just like you would run ps on Linux to see active processes. Finally, because they contain all their dependencies, there is no configuration entanglement; a containerized app “runs anywhere.”
 
 
-# Setup
+## Setup
 
 To start with the tutorial you'll need to have `docker 17.06` or later installed in your machine. 
 
