@@ -1,6 +1,4 @@
 # Introduction
-This section aims to explain some important docker concepts so the rest of the guideline can be more hands-on. 
-
 
 ## A brief explanation of containers
 An image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.

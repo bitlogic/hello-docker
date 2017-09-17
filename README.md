@@ -1,20 +1,19 @@
 # Docker Tutorial
 
-An entry level `docker` 🐳 tutorial for anyone who wants to learn how to use docker effectively in their day-to-day dev work. 
+An entry level `docker` 🐳 tutorial brought yoy by @bitlogicos :heart: for anyone who wants to learn how to use docker effectively in their day-to-day dev work.  
 
 This tutorial attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
 
 
+> This is a continuous work in progress; so feel free to propose changes and spread the word. :bowtie: :whale: 
 
-This is, of course, a continuous work in progress; so feel free to propose changes and spread the word. 
-
-Get started in the [`0-orientation`](https://github.com/bitlogic/hello-docker/tree/master/0-orientation) section.
-
+So, lets get started in the [`orientation section.`] (https://github.com/bitlogic/hello-docker/tree/master/0-orientation) section.
 
 
 
 
-# License
+
+## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
@@ -23,5 +22,4 @@ This license allows you to:
 * Share — copy and redistribute the material in any medium or format
 * Adapt — remix, transform, and build upon the material
 
-for any purpose, even commercially.
-The licensor cannot revoke these freedoms as long as you follow the license terms.
+For any purpose, even commercially. The licensor cannot revoke these freedoms as long as you follow the license terms.
