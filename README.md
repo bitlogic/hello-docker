@@ -16,11 +16,6 @@ So, lets get started in the [orientation section.] (https://github.com/bitlogic/
 
 ## License
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-
-<img srch="https://github.com/bitlogic/bitlogic.io/blob/master/images/center-logo.png">
-
-
 <br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 This license allows you to:
@@ -29,3 +24,7 @@ This license allows you to:
 * Adapt — remix, transform, and build upon the material
 
 For any purpose, even commercially. The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+
+<a><img srch="https://github.com/bitlogic/bitlogic.io/blob/master/images/center-logo.png"/></a>
