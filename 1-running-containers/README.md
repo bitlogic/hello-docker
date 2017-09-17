@@ -27,13 +27,13 @@ Easy, right? Let's take a look at what has just happened behind the scenes...
 Now lets start exploring and check the container 
 
 ```
-docker container ps
+$ docker container ps
 ```
 
 🤔 not there... Let's add the `-a` flag
 
 ```
-docker container ps -a
+$ docker container ps -a
 ```
 
 😀 there you are! The -a option list not only the `running` containers but also the containers that have been finished.  This might become handy if you want to examine them.
@@ -47,20 +47,20 @@ Now let's get serious. Let's run a full-fledged Ubuntu container:
 First we are going to pull a *specific* Ubuntu docker image from the registry.
 
 ```
-docker pull ubuntu:14.04
+$ docker pull ubuntu:14.04
 ```
 
 🤔 it looks like it downloaded something, but not sure what...
 
 ```
-docker images
+$ docker images
 ```
 
 As you can see, now we have the ubuntu:14.04 image in our host and we can create our container.
 
 
 ```
-docker container run -it ubuntu:14.04
+$ docker container run -it ubuntu:14.04
 ```
 
 Cool, we're inside the container! `-it` specifies you want to go into the interactive mode (TBH, `i` is interactive and `t` is for docker to allocate a pseudo TTY interface for the interaction)
@@ -77,32 +77,30 @@ So the way containers work is that there is one single main process that gets as
 You may also have noticed that the first time you ran `docker run ubuntu:14.04` it took a while, but the second time it was immediate. What really happened is that docker tried to run a container based on the `ubuntu:14.04` image, and since it didn't have it locally, it pulled it from the public repository. 
 
 
-
-
 ## Running, detaching and attaching to containers
 
 Let's run a mongo database! And with a cute name.
 
 ```
-docker run --name db mongo
+$ docker run --name db mongo
 ```
 
 🤔 but I don't want to be attached to the output... Just CTRL+c to quit and let's remove that container.
 
 ```
-docker rm db
+$ docker rm db
 ```
 
 Now let's run a new mongo container, but in the background with the `-d` flag (`d` as in `detach`).
 
 ```
-docker run --name db -d mongo
+$ docker run --name db -d mongo
 ```
 
 Now let's check out the mongo database. First you need to sort-of-`ssh` into the container. You don't actually use `ssh`, instead you can _execute_ a command with the interactive mode, like so:
 
 ```
-docker exec -it db mongo
+$ docker exec -it db mongo
 ```
 
 Now you're running the `mongo` command in the `db` container. Toy around and then CTRL+c to quit.
@@ -111,7 +109,7 @@ If you now do `docker ps` you'll notice the `db` container is still running. It 
 
 > *Bonus:* How to look like a hacker with Docker. 
 ```
- $ docker container run -it jturpin/hollywood hollywood
+$ docker container run -it jturpin/hollywood hollywood
 ```
 
 ## Exposing containers
