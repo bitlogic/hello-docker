@@ -8,13 +8,13 @@ _Images_ are the templates docker uses to create containers from. If you're fami
 
 Check which images you have in your local repository by doing:
 
-```
+```Shell
 $ docker images
 ```
 
 Let's try and pull another image
 
-```
+```Shell
 docker pull python:2.7-slim
 ```
 
@@ -61,7 +61,7 @@ CMD ["python", "app.py"]
 
  So go ahead and build it with the following command.
 
-```
+```Shell
 docker build -t hello-docker .
 ```
 
@@ -70,7 +70,7 @@ If you pay attention to the output of the build, you will see that each instruct
 
 Aaaaaand that's it! 🐳 You can check the new image with the following command.
 
-```
+```Shell
 docker images
 ```
 
