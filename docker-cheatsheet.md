@@ -1,4 +1,5 @@
 
+```
 # Running Containers
 
 docker --version                                    # Check the version of docker client
@@ -30,3 +31,4 @@ docker inspect <task or container>                           # Inspect task or c
 docker container ls -q                                              # List container IDs
 docker stack rm <appname>                                     # Tear down an application
 
+```
