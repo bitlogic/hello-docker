@@ -1,5 +1,6 @@
 # Images
 
+In this section we are going to be managing, defining and building our own images.
 
 ## Pulling Images
 
@@ -16,6 +17,7 @@ Let's try and pull another image
 ```
 docker pull python:2.7-slim
 ```
+
 This last command _pulled_ an image named `python` with "2.7-slim" tag from [the public docker repository](https://hub.docker.com) to your local repository. This is very similar to what you achieve with `git pull` from a public `git` repository.
 
 Cool! So now we have an image we didn't create a container from.
@@ -31,13 +33,40 @@ git clone https://github.com/bitlogic/hello-docker/
 
 ``` 
 
-In that project's root dir, there is a `Dockerfile` containing the comands to build our sample web app so go ahead and build the test-image.
+In that project's root dir, go to the "2-building-images" folder. There you will find  a `Dockerfile` containing the comands to build our first sample web app.
 
-Each instruction (`FROM`, `RUN`, etc.) in the `Dockerfile` generates a single, immutable layer.
+
+```Dockerfile
+# Use an official Python runtime as a parent image
+FROM python:2.7-slim
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the app code and dependencies file into the container at /app
+ADD . /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
+
+# Make port 80 available to the world outside this container
+EXPOSE 80
+
+# Define environment variable
+ENV NAME World
+
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+```
+
+ So go ahead and build it with the following command.
 
 ```
 docker build -t hello-docker .
 ```
+
+If you pay attention to the output of the build, you will see that each instruction (`FROM`, `RUN`, etc.) in the `Dockerfile` generates a single, immutable layer.
+
 
 Aaaaaand that's it! 🐳 You can check the new image with the following command.
 
@@ -53,6 +82,7 @@ docker container run --name hello -d -P hello-docker
 
 Excellent!! Now we have hour `hello-docker` app working and runing in our host.
 You can check the app working by conecting the browser to the `localhost:[port]`
+
 
 Alternatively, you can check the app by using the `curl` command
 

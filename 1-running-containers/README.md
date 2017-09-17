@@ -106,7 +106,10 @@ Now you're running the `mongo` command in the `db` container. Toy around and the
 
 If you now do `docker ps` you'll notice the `db` container is still running. It didn't stop because the main process, the `mongo` database process (with `pid 1`), is still running. The process you killed by quitting was just the mongo shell.
 
-
+> *Bonus:* How to look like a hacker with Docker. 
+```
+ $ docker container run -it jturpin/hollywood hollywood
+```
 
 ## Exposing containers
 
@@ -162,10 +165,12 @@ Now to stop a container you can do any of the following.
 $ docker container stop {container id | container name}
 ```
 
-Great! This command has stopped the containers but we still have the containers stopped in the host. If you want a complete cleanup and remove everything, you can go further by executing the following:
+Great! This command has stopped the containers from running but we still have the containers files in the host. If you want a complete cleanup and remove everything, you should go further and execute the following:
 
 ``` 
 $ docker container prune
 ```
+The `prune` command will delete all containers so if you check with `docker container ps -a` you will see that there are no more containers on your host.
+
 
 That's a wrap for the basics. Let's [move on to the next section](https://github.com/bitlogic/hello-docker/tree/master/2-building-images).
