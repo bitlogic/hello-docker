@@ -21,6 +21,7 @@ Easy, right? Let's take a look at what has just happened behind the scenes...
     to your terminal.
 
 
+
 Whoa!! So this really means that the whole *Docker Platform* is correctly setup and working.
 
 
@@ -65,7 +66,9 @@ docker container run -it ubuntu:14.04
 
 Cool, we're inside the container! `-it` specifies you want to go into the interactive mode (TBH, `i` is interactive and `t` is for docker to allocate a pseudo TTY interface for the interaction)
 
-> Can you guess What will happen if you delete the any important file inside the container? 
+> Can you guess What will happen if you delete the any important file inside the container? (e.g. :warning: delete the "ls" binary... )
+
+:bulb: *Remember:* What happen in a container, stays in a container.
 
 After toying around just `exit`. 
 
