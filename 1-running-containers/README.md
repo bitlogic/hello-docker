@@ -107,10 +107,6 @@ Now you're running the `mongo` command in the `db` container. Toy around and the
 
 If you now do `docker ps` you'll notice the `db` container is still running. It didn't stop because the main process, the `mongo` database process (with `pid 1`), is still running. The process you killed by quitting was just the mongo shell.
 
-:trollface: OK, now if you need to look like a *hacker* with Docker do the following command :trollface:
-```
-$ docker container run -it jturpin/hollywood hollywood
-```
 
 ## Exposing containers
 
@@ -173,5 +169,13 @@ $ docker container prune
 ```
 The `prune` command will delete all containers so if you check with `docker container ps -a` you will see that there are no more containers on your host.
 
+### Finally
+If you need to look like a **hollywood hacker** with `Docker` you can run the following command:
 
-That's a wrap for the basics. Let's [move on to the next section](https://github.com/bitlogic/hello-docker/tree/master/2-building-images).
+```
+$ docker container run -it jturpin/hollywood hollywood
+```
+:trollface: :trollface: :trollface: 
+
+
+:bowtie: That's a wrap for the basics. Let's [move on to the next section](https://github.com/bitlogic/hello-docker/tree/master/2-building-images).
