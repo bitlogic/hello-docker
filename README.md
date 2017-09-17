@@ -2,16 +2,15 @@
 
 An entry level `docker` 🐳 tutorial for anyone who wants to learn how to use docker effectively in their day-to-day dev work. 
 
-This *docker tutorial* attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
+This *docker tutorial* attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`. Just in case, you can also grab the [Docker Cheatsheet](https://github.com/bitlogic/hello-docker/tree/master/docker-cheatsheet.md)
+
 
 > This is a continuous work in progress; so feel free to propose changes and spread the word by submiting a PR or just just contact us at [bitlogic](https://bitlogic.io)
 
 So, let's get started in the [orientation section](https://github.com/bitlogic/hello-docker/tree/master/0-orientation). :punch:
 
-> Just in case, you can also grab the [Docker Cheatsheet](https://github.com/bitlogic/hello-docker/tree/master/docker-cheatsheet.md)
 
 ## License
-
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
 

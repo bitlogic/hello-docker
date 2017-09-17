@@ -1,7 +1,7 @@
 
-```
-# Running Containers
+### Running Containers
 
+```
 docker --version                                    # Check the version of docker client
 docker run hello-world                      # If works it means that the platform is OK.
 docker container ps -a                          #list all running and stopped containers
@@ -12,17 +12,19 @@ docker container run -P -d <image>                             # -d to run in ba
 docker container exec -it <container-name>              # connect to a running container
 docker logs <container-name>                      # See the logs of particular container
 docker container stop <container-name | id >                        # Stop the container
+```
 
-
-# Building Images
+### Building Images
+```
 docker images                                              # List all images on the host
 docker images -a                                           # Include intermediate layers
 docker build -t <image-name>  <PathtoDockerfile         # Build an image from dockerfile
 docker rmi                                                  # Remove image from the host       
 docker rmi -f                                                   # Force removal of image
+```
 
-
-# Running Services
+### Running Services
+```
 docker stack ls                                                    # List stacks or apps
 docker stack deploy -c <composefile> <appname>          # Run the specified Compose file
 docker service ls                         # List running services associated with an app
@@ -30,5 +32,4 @@ docker service ps <service>                          # List tasks associated wit
 docker inspect <task or container>                           # Inspect task or container
 docker container ls -q                                              # List container IDs
 docker stack rm <appname>                                     # Tear down an application
-
 ```

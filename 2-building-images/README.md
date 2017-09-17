@@ -4,7 +4,7 @@ In this section we are going to be managing, defining and building our own image
 
 ## Pulling Images
 
-_Images_ are the templates docker uses to create containers from. If you're familiar with [Object Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) you may (sort of) think of images as _classes_ and containers as _instances_.
+**Images** are the templates docker uses to create containers from. If you're familiar with [Object Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) you may (sort of) think of images as _classes_ and containers as _instances_.
 
 Check which images you have in your local repository by doing:
 
@@ -12,13 +12,13 @@ Check which images you have in your local repository by doing:
 $ docker images
 ```
 
-Let's try and pull another image
+Let's try and pull an image
 
 ```Shell
-docker pull python:2.7-slim
+$ docker pull python:2.7-slim
 ```
 
-This last command _pulled_ an image named `python` with "2.7-slim" tag from [the public docker repository](https://hub.docker.com) to your local repository. This is very similar to what you achieve with `git pull` from a public `git` repository.
+This last command _pulled_ an image named `python` with "2.7-slim" tag from [the public docker repository](https://hub.docker.com) to your local host. This is very similar to what you achieve with `git pull` from a public `git` repository.
 
 Cool! So now we have an image we didn't create a container from.
 
@@ -29,12 +29,11 @@ A docker image is made of one or more layers. Each layer is built on top of the 
 
 To get a sample `Dockerfile` that we will use, clone this repo 
 ```
-git clone https://github.com/bitlogic/hello-docker/
+$ git clone https://github.com/bitlogic/hello-docker/
 
 ``` 
 
-In that project's root dir, go to the "2-building-images" folder. There you will find  a `Dockerfile` containing the comands to build our first sample web app.
-
+In that project's root dir, go to the "./2-building-images" folder. There you will find  a `Dockerfile` containing the following comands.
 
 ```Dockerfile
 # Use an official Python runtime as a parent image
@@ -71,13 +70,13 @@ If you pay attention to the output of the build, you will see that each instruct
 Aaaaaand that's it! 🐳 You can check the new image with the following command.
 
 ```Shell
-docker images
+$ docker images
 ```
 
 Now lets run the app that we have just build.
 
 ```
-docker container run --name hello -d -P hello-docker 
+$ docker container run --name hello -d -P hello-docker 
 ```
 
 Excellent!! Now we have hour `hello-docker` app working and runing in our host.
