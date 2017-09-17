@@ -1,11 +1,12 @@
 # Docker Tutorial
 
-An entry level `docker` 🐳 tutorial brought yoy by @bitlogicos :heart: for anyone who wants to learn how to use docker effectively in their day-to-day dev work.  
+An entry level `docker` 🐳 tutorial for anyone who wants to learn how to use docker effectively in their day-to-day dev work. 
 
-This tutorial attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
+> This is a continuous work in progress; so feel free to propose changes and spread the word. @bitlogic :bowtie: :whale: 
 
 
-> This is a continuous work in progress; so feel free to propose changes and spread the word. :bowtie: :whale: 
+This *docker tutorial* attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
+
 
 So, lets get started in the [`orientation section.`] (https://github.com/bitlogic/hello-docker/tree/master/0-orientation) section.
 
