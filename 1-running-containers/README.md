@@ -107,7 +107,7 @@ Now you're running the `mongo` command in the `db` container. Toy around and the
 
 If you now do `docker ps` you'll notice the `db` container is still running. It didn't stop because the main process, the `mongo` database process (with `pid 1`), is still running. The process you killed by quitting was just the mongo shell.
 
-> *Bonus:* How to look like a hacker with Docker. 
+:trollface: OK, now if you need to look like a *hacker* with Docker do the following command :trollface:
 ```
 $ docker container run -it jturpin/hollywood hollywood
 ```
