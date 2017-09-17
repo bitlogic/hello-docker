@@ -4,9 +4,9 @@ An entry level `docker` 🐳 tutorial for anyone who wants to learn how to use d
 
 This *docker tutorial* attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
 
-![Image of Yaktocat](./0-orientation/horizontal_large.png)
-
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+<p align=center>
+![Image of Yaktocat](./0-orientation/horizontal_small.png)
+</p>
 
 > This is a continuous work in progress; so feel free to propose changes and spread the word by submiting a PR or just just contact us at [bitlogic](https://bitlogic.io)
 
