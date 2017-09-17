@@ -8,10 +8,10 @@ _Images_ are the templates docker uses to create containers from. If you're fami
 Check which images you have in your local repository by doing:
 
 ```
-docker images
+$ docker images
 ```
 
-Let's try and get another image
+Let's try and pull another image
 
 ```
 docker pull python:2.7-slim

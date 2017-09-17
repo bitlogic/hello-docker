@@ -5,11 +5,12 @@
 The most fundamental part of `Docker` are *containers*. There's a lot to say about them, but let's just run one:
 
 ```
-docker container run hello-world
+$ docker container run hello-world
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
+
 Easy, right? Let's take a look at what has just happened behind the scenes...
 
  1. The *Docker client* contacted the *Docker daemon*.
@@ -19,10 +20,11 @@ Easy, right? Let's take a look at what has just happened behind the scenes...
  4. The *Docker daemon* streamed that output to the *Docker client*, which sent it
     to your terminal.
 
+
 Whoa!! So this really means that the whole *Docker Platform* is correctly setup and working.
 
 
-Now lets start exploring ts check the container 
+Now lets start exploring and check the container 
 
 ```
 docker container ps
@@ -111,7 +113,7 @@ If you now do `docker ps` you'll notice the `db` container is still running. It 
 Now let's run a web app in _another_ container.
 
 ```
-docker container run --name webapp -d -P seqvence/static-site
+$ docker container run --name webapp -d -P seqvence/static-site
 ```
 
 The -P command is basically making docker to automatically bind the internal port that the container is exposing to some available port in your host.
@@ -119,7 +121,7 @@ The -P command is basically making docker to automatically bind the internal por
 So, lets check if the app is running and which ports is exposing.
 
 ```
-docker container ps
+$ docker container ps
 ```
 
 As you can see under `PORTS`, it seems the app *is* listening in port 80, but... 😮 Of course! That's just the container's _internal_ port! 
@@ -141,7 +143,7 @@ One of the benefits from docker is that they provide some standard interface for
 So, first lets start a container in background.
 
 ```
-docker logs webapp
+$ docker logs webapp
 ```
 
 ## Cleaning up containers
@@ -151,19 +153,19 @@ OK,  we know how to start multiple containers so now its time to stop them.
 First, check which containers are running with 
 
 ```
-docker container ps
+$ docker container ps
 ```
 
 Now to stop a container you can do any of the following. 
 
 ``` 
-docker container stop {container id | container name}
+$ docker container stop {container id | container name}
 ```
 
 Great! This command has stopped the containers but we still have the containers stopped in the host. If you want a complete cleanup and remove everything, you can go further by executing the following:
 
 ``` 
-docker container prune
+$ docker container prune
 ```
 
 That's a wrap for the basics. Let's [move on to the next section](https://github.com/bitlogic/hello-docker/tree/master/2-building-images).

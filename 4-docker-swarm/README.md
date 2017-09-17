@@ -14,54 +14,10 @@ Pick your poison and choose one of the following:
 
 #### Online sandbox
 
+For the sake of simplicity, in this section we are going to use the play with docker environment.
+
 Browse to [`play-with-docker`](http://play-with-docker.com/) and create three nodes with the "+ ADD NEW INSTANCE" button.
 
-Skip to the [next section](https://github.com/bitlogic/hello-docker/tree/master/4-docker-swarm#get-swarmin).
-
-#### Local swarm
-
-Make sure you have `docker-machine` installed by doing:
-
-```
-docker-machine --version
-```
-
-Start by creating the cluster master node:
-
-```
-docker-machine create -d virtualbox manager
-```
-
-That created a manager node. You can `ssh` into it if you like:
-
-```
-docker-machine ssh manager
-```
-
-Cool, innit? Now `exit` and create some worker nodes:
-
-```
-docker-machine create -d virtualbox worker1
-docker-machine create -d virtualbox worker2
-```
-
-Now you'll need to talk to the docker daemon in the manager node. You may `ssh` into it, but let's do it from the outside, which is more similar to what you'd do in a real-world scenario.
-
-The quick way to do this is by doing:
-
-```
-eval $(docker-machine env manager)
-```
-
-This command set some env vars that tells your docker client where and how to find the docker daemon it's supposed to communicate with. Check which ones by doing:
-
-```
-env | grep DOCKER
-```
-
-Note that every command you tell docker to run will actually run on the manager's docker daemon, so if you do `docker images` or `docker ps` you won't see the stuff you've been workin on during this workshop since you aren't talking to your local daemon anymore.
-
-If you want to revert to talking to your local daemon either open a new terminal or `unset` those env vars.
 
 ### Get swarmin'
 
