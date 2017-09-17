@@ -1,8 +1,9 @@
 # Docker Tutorial
+![Bitlogic.io](https://github.com/bitlogic/bitlogic.io/blob/master/images/center-logo.png)
 
 An entry level `docker` 🐳 tutorial for anyone who wants to learn how to use docker effectively in their day-to-day dev work. 
 
-> This is a continuous work in progress; so feel free to propose changes and spread the word. @bitlogic :bowtie: :whale: 
+> This is a continuous work in progress; so feel free to propose changes and spread the word. :bowtie: :whale: 
 
 
 This *docker tutorial* attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
@@ -11,13 +12,10 @@ This *docker tutorial* attempts to drive you through the fundamentals and into s
 So, lets get started in the [orientation section.] (https://github.com/bitlogic/hello-docker/tree/master/0-orientation). :punch:
 
 
-![Bitlogic.io](https://github.com/bitlogic/bitlogic.io/blob/master/images/center-logo.png)
-
 
 ## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
-
 
 <br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
