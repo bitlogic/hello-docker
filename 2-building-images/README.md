@@ -62,7 +62,7 @@ CMD ["python", "app.py"]
  So go ahead and build it with the following command.
 
 ```Shell
-docker build -t hello-docker .
+$ docker build -t hello-docker .
 ```
 
 If you pay attention to the output of the build, you will see that each instruction (`FROM`, `RUN`, etc.) in the `Dockerfile` generates a single, immutable layer.

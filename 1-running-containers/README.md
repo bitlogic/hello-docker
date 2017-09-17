@@ -13,16 +13,15 @@ This message shows that your installation appears to be working correctly.
 
 Easy, right? Let's take a look at what has just happened behind the scenes...
 
- 1. The *Docker client* contacted the *Docker daemon*.
- 2. The *Docker daemon* pulled the "hello-world" image from the *Docker Hub*.
- 3. The *Docker daemon* created a new *container* from that image which runs the
+ 1. The **Docker client** contacted the **Docker daemon**.
+ 2. The **Docker daemon** pulled the "hello-world" image from the **Docker Hub**.
+ 3. The **Docker daemon** created a new **container** from that image which runs the
     executable that produces the output you are currently reading.
- 4. The *Docker daemon* streamed that output to the *Docker client*, which sent it
+ 4. The **Docker daemon** streamed that output to the **Docker client**, which sent it
     to your terminal.
 
 
-
-Whoa!! So this really means that the whole *Docker Platform* is correctly setup and working.
+> Whoa!! So this means that the whole **Docker Platform** is correctly setup and working.
 
 
 Now lets start exploring and check the container 
@@ -66,9 +65,10 @@ docker container run -it ubuntu:14.04
 
 Cool, we're inside the container! `-it` specifies you want to go into the interactive mode (TBH, `i` is interactive and `t` is for docker to allocate a pseudo TTY interface for the interaction)
 
-> Can you guess What will happen if you delete the any important file inside the container? (e.g. :warning: delete the "ls" binary... )
+Can you guess What will happen if you delete the any important file inside the container? (e.g. :warning: delete the "ls" binary... )
 
-:bulb: *Remember:* What happen in a container, stays in a container.
+> :bulb: **Remember:** What happen in a container, stays in a container.
+
 
 After toying around just `exit`. 
 
@@ -137,7 +137,7 @@ By passing the `-P` parameter to the docker run command, docker has automaticall
 Check the outcome of the command and try to connect via browser to \\localhost:{->binded port}
 
 
-Congratulations! You now have a web app runing inside a container and being exposed externally so users can enjoy it. 😎🐳
+Congratulations! You now have a web app runing inside a container and being exposed externally so users can enjoy it. 😎 🐳
 
 
 ## Docker Logs
