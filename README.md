@@ -8,7 +8,7 @@ An entry level `docker` 🐳 tutorial for anyone who wants to learn how to use d
 This *docker tutorial* attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`.
 
 
-So, lets get started in the [`orientation section.`] (https://github.com/bitlogic/hello-docker/tree/master/0-orientation) section.
+So, lets get started in the [orientation section.] (https://github.com/bitlogic/hello-docker/tree/master/0-orientation). :punch:
 
 
 
@@ -16,7 +16,12 @@ So, lets get started in the [`orientation section.`] (https://github.com/bitlogi
 
 ## License
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+
+<img srch="https://github.com/bitlogic/bitlogic.io/blob/master/images/center-logo.png">
+
+
+<br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 This license allows you to:
 
