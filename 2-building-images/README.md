@@ -101,7 +101,7 @@ You'll see that all layers get rebuilt! This is because you changed the _base la
 
 In your everyday development workflow, you don't want to reinstall all dependencies just because you changed a single source file, you would only want that if you changed code files.
 
-> So be careful with how the Docker file is defined and always try to put the more stable things at the beginning since the build time will be faster.
+> :bulb: So be careful with how the Docker file is defined and always try to put the more stable things at the beginning since the build time will be faster.
 
 
 Now You may publish this image by using the command `docker push`, but you'll need an account in [`hub.docker.com`](https://hub.docker.com); you can do that later on your own. 
