@@ -67,10 +67,12 @@ Cool, we're inside the container! `-it` specifies you want to go into the intera
 
 Can you guess What will happen if you delete the any important file inside the container? (e.g. :warning: delete the "ls" binary... )
 
+After toying around just `exit`. 
+
+
 > :bulb: **Remember:** What happen in a container, stays in a container.
 
 
-After toying around just `exit`. 
 
 So the way containers work is that there is one single main process that gets assigned `pid 1`, which runs as the containers starts, and as soon as that process exits, the container is stopped, even if there were other processes running inside of it.
 
@@ -169,13 +171,13 @@ $ docker container prune
 ```
 The `prune` command will delete all containers so if you check with `docker container ps -a` you will see that there are no more containers on your host.
 
-### Finally
-If you need to look like a **hollywood hacker** with `Docker` you can run the following command:
+#### Bonus :trollface: 
+If you need to look like a **hollywood hacker** with `Docker` you can just run the following command:
 
 ```
 $ docker container run -it jturpin/hollywood hollywood
 ```
-:trollface: :trollface: :trollface: 
+
 
 
 :bowtie: That's a wrap for the basics. Let's [move on to the next section](https://github.com/bitlogic/hello-docker/tree/master/2-building-images).
