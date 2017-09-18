@@ -9,7 +9,6 @@ This *docker tutorial* attempts to drive you through the fundamentals and into s
 
 So, let's get started in the [orientation section](https://github.com/bitlogic/hello-docker/tree/master/0-orientation). :punch:
 
-
 ## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
