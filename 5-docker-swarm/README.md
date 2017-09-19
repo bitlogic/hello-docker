@@ -12,7 +12,15 @@ This last section will walk you through creating a simple swarm cluster and the 
 
 ## Get some nodes
 
-In order to have a docker swarm going, you'll need a machine cluster, for which you'll need machines. Quickest, coolest way is by using [`play-with-docker`](http://play-with-docker.com/) to try it online. So, for the sake of simplicity, in this section we are going to use the play with docker environment.
+In order to have a docker swarm going, you'll need a machine cluster, for which you'll need machines. Quickest, coolest way is by using [`play-with-docker`](http://play-with-docker.com/) to try it online. If you'd rather try it locally, you'll need [`docker-machine`](https://docs.docker.com/machine/) and [`Virtualbox`](https://www.virtualbox.org/). If you're running `Docker for mac` or `Docker for windows` you probably already have it installed; `Linux` users should get `docker-machine` separately.
+
+The main difference is how long it'll take you to have the swarm ready. If you're just trying it out, the online route is probably what you want. If you'd like your swarm to be persistent or try some extra stuff you'll want to use the local approach (it may get resource intensive).
+
+Pick your poison and choose one of the following:
+
+#### Online sandbox
+
+For the sake of simplicity, in this section we are going to use the play with docker environment.
 
 Browse to [`play-with-docker`](http://play-with-docker.com/) and create three nodes with the "+ ADD NEW INSTANCE" button.
 
@@ -51,41 +59,6 @@ docker node ls
 
 You now have a 3-node working swarm cluster 😎
 
-## Services
-
-Just like `docker-compose` works with the concept of services, so does docker swarm. Let's create a very simple service that pings `docker.com`
-
-```
-docker service create --name pinger --replicas 1 alpine ping docker.com
-```
-
-See some info about the service by doing
-
-```
-docker service inspect --pretty pinger
-```
-
-Check its status by doing:
-
-```
-docker service ps pinger
-```
-
-You can see in which node it's running. Now let's scale the service by getting more replicas of it (each replica is a container):
-
-```
-docker service scale pinger=5
-```
-
-Now if you `docker service ps pinger` you'll see in which nodes the new replicas are running.
-
-Now you have a full-fledged local docker swarm.
-
-Let's kill one of the worker nodes and see how docker re-schedules its containers: in `play-with-docker` just hit the delete button in any of the worker nodes. If running locally just `docker-machine rm worker2`
-
-Now `docker service ps pinger` repeatedly to see how some of the pop up in the other nodes automatically. How cool is that?
-
-You now have a resilient, distributed application running in a docker swarm cluster ✨
 
 ## Final words
 

@@ -32,4 +32,5 @@ docker service ps <service>                          # List tasks associated wit
 docker inspect <task or container>                           # Inspect task or container
 docker container ls -q                                              # List container IDs
 docker stack rm <appname>                                     # Tear down an application
+docker service logs <service>                         # See the logs for all the service
 ```
