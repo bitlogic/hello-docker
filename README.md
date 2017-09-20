@@ -22,7 +22,5 @@ This license allows you to:
 
 For any purpose, even commercially. The licensor cannot revoke these freedoms as long as you follow the license terms.
 
-![Docker Small](./0-orientation/horizontal_small.png)
-
-![Docker Small](https://bitlogic.io/images/logo.png)
+![Bitlogic](https://bitlogic.io/images/logo.png) ![Docker Small](./0-orientation/horizontal_small.png) 
 
