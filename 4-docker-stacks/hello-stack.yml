@@ -3,7 +3,7 @@ services:
   web:
     image: hello-docker
     deploy:
-      replicas: 5
+      replicas: 3
       restart_policy:
         condition: on-failure
       resources:
@@ -29,8 +29,6 @@ services:
     image: redis
     ports:
       - "6379:6379"
-    volumes:
-      - ./data:/data
     deploy:
       placement:
         constraints: [node.role == manager]

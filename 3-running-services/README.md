@@ -68,5 +68,5 @@ Now lets check the **logs** from all the instances of the service.
 docker service logs -f pinger
 ```
 
-Now let's get serious, and [create a stack](https://github.com/bitlogic/hello-docker/tree/master/4-docker-stacks).
+On this section we have created very simple services using the `docker service` command. On next section we are going to get more serious and use a `docker-compose.yml` file to [create a stack](https://github.com/bitlogic/hello-docker/tree/master/4-docker-stacks).
 

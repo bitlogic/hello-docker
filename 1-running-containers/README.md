@@ -171,13 +171,14 @@ $ docker container prune
 ```
 The `prune` command will delete all containers so if you check with `docker container ps -a` you will see that there are no more containers on your host.
 
-#### Bonus :trollface: 
+#### Bonus :trollface: :trollface: :trollface:
 If you need to look like a **hollywood hacker** with `Docker` you can just run the following command:
 
 ```
 $ docker container run -it jturpin/hollywood hollywood
 ```
+:grimacing:
 
 
 
-:bowtie: That's a wrap for the basics. Let's [move on to the next section](https://github.com/bitlogic/hello-docker/tree/master/2-building-images).
+So, That's a wrap for the basics. :bowtie: Let's [move on to the next section](https://github.com/bitlogic/hello-docker/tree/master/2-building-images). :punch:

@@ -91,6 +91,8 @@ $ curl http://localhost:[port]
 <h3>Hello World!</h3><b>Hostname:</b> 8fc990912a14<br/><b>Visits:</b> <i>cannot connect to Redis, counter disabled</i>
 ```
 
+
+
 ## Understanding layers and leveraging the cache
 
 Notice that if you run the `docker build` command again, it will take no time at all. This is because docker caches each layer and doesn't re-build them if the build context and layer creation command didn't change since the last build.
@@ -106,4 +108,8 @@ In your everyday development workflow, you don't want to reinstall all dependenc
 
 Now You may publish this image by using the command `docker push`, but you'll need an account in [`hub.docker.com`](https://hub.docker.com); you can do that later on your own. 
 
-For now, let's [learn how to create services](https://github.com/bitlogic/hello-docker/tree/master/3-running-services)
+
+
+
+
+There's a lot more to say about images but now is time to [learn how to create services](https://github.com/bitlogic/hello-docker/tree/master/3-running-services)

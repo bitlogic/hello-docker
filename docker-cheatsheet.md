@@ -1,3 +1,5 @@
+# Docker Cheatsheet
+
 
 ### Running Containers
 
@@ -14,15 +16,6 @@ docker logs <container-name>                      # See the logs of particular c
 docker container stop <container-name | id >                        # Stop the container
 ```
 
-### Building Images
-```
-docker images                                              # List all images on the host
-docker images -a                                           # Include intermediate layers
-docker build -t <image-name>  <PathtoDockerfile         # Build an image from dockerfile
-docker rmi                                                  # Remove image from the host       
-docker rmi -f                                                   # Force removal of image
-```
-
 ### Running Services
 ```
 docker stack ls                                                    # List stacks or apps
@@ -34,3 +27,13 @@ docker container ls -q                                              # List conta
 docker stack rm <appname>                                     # Tear down an application
 docker service logs <service>                         # See the logs for all the service
 ```
+
+### Building Images
+```
+docker images                                              # List all images on the host
+docker images -a                                           # Include intermediate layers
+docker build -t <image-name>  <Path-to-Dockerfile       # Build an image from dockerfile
+docker rmi                                                  # Remove image from the host       
+docker rmi -f                                                   # Force removal of image
+```
+
