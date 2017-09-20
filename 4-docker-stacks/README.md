@@ -125,16 +125,20 @@ Magic ✨🐳
 ```
 $ docker service ls
 ```
+
 You should see something like the following:
 ```
 ID                  NAME                MODE                REPLICAS            IMAGE                             PORTS
 i08fo6eilog8        hello_redis         replicated          1/1                 redis:latest                      *:6379->6379/tcp
 nch7igvp6l16        hello_visualizer    replicated          1/1                 dockersamples/visualizer:stable   *:8080->8080/tcp
-px5kj7d22t8x        hello_web           replicated          5/5                 hello-docker:latest               *:80->80/tcp
+px5kj7d22t8x        hello_web           replicated          3/3                 hello-docker:latest               *:80->80/tcp
 ```
-> You can **visually** see the services deployed by connecting to the `visualizer` service browsing to [localhost:8080]
+
 
 So now we have a `stack` with 3 services! A web service with 3 instances running and being load balanced automatically by docker, a `redis` service to persist the visitors to the site and the `visualizer` to see how are the service deployed. 
+
+> :shipit: Now You can **visually** see the services deployed by connecting to the `visualizer` service browsing to [localhost:8080]
+
 
 Lets have a little more fun and scale the web service with the following command:
 ```
@@ -146,19 +150,13 @@ Now stop a few containers and see what happen
 $ docker stop [container id | name]
 ```
 
+You now have a multi-service resilient application running in a docker swarm ✨
 
 
-Let's kill one of the worker nodes and see how docker re-schedules its containers: in `play-with-docker` just hit the delete button in any of the worker nodes. If running locally just `docker-machine rm worker2`
-
-Now `docker service ps pinger` repeatedly to see how some of the pop up in the other nodes automatically. How cool is that?
-
-You now have a resilient, distributed application running in a docker swarm cluster ✨
+Now lets get serious and distribute the application in multiple nodes with [docker swarm](https://github.com/bitlogic/hello-docker/tree/master/5-docker-swarm).
 
 
-Docker swarms run tasks that spawn containers. Tasks have state and their own IDs:
-```
-docker service ps <service>
-```
+
 
 
 
