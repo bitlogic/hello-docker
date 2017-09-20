@@ -53,12 +53,11 @@ Our single service stack is running 3 container instances of our deployed image 
 You can run `curl http://localhost` several times in a row, or go to that URL in your browser and hit refresh a few times. Either way, you’ll see the container ID change, demonstrating the load-balancing; with each request, one of the 5 replicas is chosen, in a round-robin fashion, to respond.
 
 Magic ✨🐳
-Magic ✨🐳
-Magic ✨🐳
+
 
 Now lets delete the service 
 ```
-docker service rm hello-service
+$ docker service rm hello-service
 ```
 
 ## Multi-Service Stacks
@@ -74,7 +73,7 @@ services:
   web:
     image: hello-docker
     deploy:
-      replicas: 5
+      replicas: 3
       restart_policy:
         condition: on-failure
       resources:
@@ -109,7 +108,6 @@ services:
       - webnet
 networks:
   webnet:
-
 ```
 
 As you can see, we are adding 2 services `redis` and `visualizer` toghether with their policies and constraints.
@@ -117,10 +115,36 @@ As you can see, we are adding 2 services `redis` and `visualizer` toghether with
 Let's start the stack and see what happen:
 
 ```
-$ docker stack deploy -c hello-stack.yml hello-service
+$ docker stack deploy -c hello-stack.yml hello
 ```
 
+Magic ✨🐳
+Magic ✨🐳
+Magic ✨🐳
 
+```
+$ docker service ls
+```
+You should see something like the following:
+```
+ID                  NAME                MODE                REPLICAS            IMAGE                             PORTS
+i08fo6eilog8        hello_redis         replicated          1/1                 redis:latest                      *:6379->6379/tcp
+nch7igvp6l16        hello_visualizer    replicated          1/1                 dockersamples/visualizer:stable   *:8080->8080/tcp
+px5kj7d22t8x        hello_web           replicated          5/5                 hello-docker:latest               *:80->80/tcp
+```
+> You can **visually** see the services deployed by connecting to the `visualizer` service browsing to [localhost:8080]
+
+So now we have a `stack` with 3 services! A web service with 3 instances running and being load balanced automatically by docker, a `redis` service to persist the visitors to the site and the `visualizer` to see how are the service deployed. 
+
+Lets have a little more fun and scale the web service with the following command:
+```
+$ docker service scale hello_web=5
+```
+
+Now stop a few containers and see what happen
+```
+$ docker stop [container id | name]
+```
 
 
 
