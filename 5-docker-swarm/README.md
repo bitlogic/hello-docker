@@ -59,6 +59,16 @@ docker node ls
 
 You now have a 3-node working swarm cluster 😎
 
+Let's kill one of the worker nodes and see how docker re-schedules its containers: in `play-with-docker` just hit the delete button in any of the worker nodes. If running locally just `docker-machine rm worker2`
+
+Now `docker service ps pinger` repeatedly to see how some of the pop up in the other nodes automatically. How cool is that?
+
+
+Docker swarms run tasks that spawn containers. Tasks have state and their own IDs:
+```
+docker service ps <service>
+```
+
 
 ## Final words
 

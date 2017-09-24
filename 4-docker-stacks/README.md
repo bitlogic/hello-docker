@@ -139,8 +139,13 @@ So now we have a `stack` with 3 services! A web service with 3 instances running
 
 > :shipit: Now You can **visually** see the services deployed by connecting to the `visualizer` service browsing to [localhost:8080]
 
+> :shipit:  If you are a console nerd, try the following command to check how the web service is load balanced and the visit history is persisted.
 
-Lets have a little more fun and scale the web service with the following command:
+```
+$ while sleep 1; do curl localhost && echo ""; done
+```
+
+Now, Lets have a little more fun and scale the web service with the following command:
 ```
 $ docker service scale hello_web=5
 ```
@@ -154,10 +159,3 @@ You now have a multi-service resilient application running in a docker swarm ✨
 
 
 Now lets get serious and distribute the application in multiple nodes with [docker swarm](https://github.com/bitlogic/hello-docker/tree/master/5-docker-swarm).
-
-
-
-
-
-
-
