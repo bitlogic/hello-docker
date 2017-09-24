@@ -55,9 +55,9 @@ You can run `curl http://localhost` several times in a row, or go to that URL in
 Magic ✨🐳
 
 
-Now lets delete the service 
+Now lets delete the **stack** 
 ```
-$ docker service rm hello-service
+$ docker stack rm hello-service
 ```
 
 ## Multi-Service Stacks
@@ -99,8 +99,6 @@ services:
     image: redis
     ports:
       - "6379:6379"
-    volumes:
-      - ./data:/data
     deploy:
       placement:
         constraints: [node.role == manager]
@@ -119,7 +117,9 @@ $ docker stack deploy -c hello-stack.yml hello
 ```
 
 Magic ✨🐳
+
 Magic ✨🐳
+
 Magic ✨🐳
 
 ```
@@ -139,7 +139,7 @@ So now we have a `stack` with 3 services! A web service with 3 instances running
 
 > :shipit: Now You can **visually** see the services deployed by connecting to the `visualizer` service browsing to [localhost:8080]
 
-> :shipit:  If you are a console nerd, try the following command to check how the web service is load balanced and the visit history is persisted.
+> :shipit:  If you are a console nerd, try the following command (tested in MacOS) to check how the web service is load balanced and the visit history is persisted.
 
 ```
 $ while sleep 1; do curl localhost && echo ""; done
@@ -157,5 +157,9 @@ $ docker stop [container id | name]
 
 You now have a multi-service resilient application running in a docker swarm ✨
 
+To stop the stack execute the following:
+```
+docker stack rm hello
+```
 
 Now lets get serious and distribute the application in multiple nodes with [docker swarm](https://github.com/bitlogic/hello-docker/tree/master/5-docker-swarm).
