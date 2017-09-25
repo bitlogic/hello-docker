@@ -32,7 +32,7 @@ docker service logs <service>                         # See the logs for all the
 ```
 docker images                                              # List all images on the host
 docker images -a                                           # Include intermediate layers
-docker build -t <image-name>  <Path-to-Dockerfile       # Build an image from dockerfile
+docker build -t <image-name>  <Path-to-Dockerfile>      # Build an image from dockerfile
 docker rmi                                                  # Remove image from the host       
 docker rmi -f                                                   # Force removal of image
 ```

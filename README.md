@@ -1,13 +1,35 @@
-# Docker Tutorial
+# Hello Docker 
 
-An entry level `docker` 🐳 tutorial for anyone who wants to learn how to use docker effectively in their day-to-day dev work. 
+An entry level `docker tutorial` 🐳  for anyone who wants to learn how to use docker effectively in their day-to-day dev work. 
 
-This *docker tutorial* attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`. Just in case, you can also grab the [Docker Cheatsheet](https://github.com/bitlogic/hello-docker/tree/master/docker-cheatsheet.md)
+![Docker Small](./0-orientation/horizontal_small.png) 
 
 
-> This is a continuous work in progress; so feel free to propose changes and spread the word by submiting a PR or just just contact us at [bitlogic](https://bitlogic.io)
+## Getting Started
+
+This **docker tutorial** attempts to drive you through the fundamentals and into some advanced topics like `docker services` and  `docker stacks` and `docker's swarm mode`. Just in case, you can also grab the [Docker Cheatsheet](https://github.com/bitlogic/hello-docker/tree/master/docker-cheatsheet.md)
+
 
 So, let's get started in the [orientation section](https://github.com/bitlogic/hello-docker/tree/master/0-orientation). :punch:
+
+
+### Pre Requisites
+
+To start with the tutorial you'll need to have `docker 17.06` or later installed in your machine.  So go ahead and [install the latest stable version here](https://docs.docker.com/engine/installation/)
+
+
+``` 
+docker --version
+Docker version 17.06.1-ce, build 874a737
+```
+
+> The steps provided here are going to asume that you install docker on your localhost but using [`play-with-docker`](http://play-with-docker.com) is a valid and probably recommended alternative.
+
+
+## Contributing
+
+This is a continuous work in progress; so feel free to propose changes and spread the word or just just contact us at [bitlogic](https://bitlogic.io)
+
 
 ## License
 
@@ -21,6 +43,4 @@ This license allows you to:
 * Adapt — remix, transform, and build upon the material
 
 For any purpose, even commercially. The licensor cannot revoke these freedoms as long as you follow the license terms.
-
-![Bitlogic](https://bitlogic.io/images/logo.png) ![Docker Small](./0-orientation/horizontal_small.png) 
 
