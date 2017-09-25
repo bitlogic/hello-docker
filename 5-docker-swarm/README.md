@@ -2,8 +2,6 @@
 
  :warning: **THIS SECTION IS STILL IN PROGRESS** :warning:
 
-
-
 # Docker swarm
 
 Docker's swarm mode allows you to go all serious about large scale, highly available docker environments. It basically lets you handle a cluster of machines as a single docker daemon, with automatic failover, container scheduling, routing and tons of other goodies.

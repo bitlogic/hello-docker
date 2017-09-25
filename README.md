@@ -17,9 +17,9 @@ So, let's get started in the [orientation section](https://github.com/bitlogic/h
 
 To start with the tutorial you'll need to have `docker 17.06` or later installed in your machine.  So go ahead and [install the latest stable version here](https://docs.docker.com/engine/installation/)
 
-
+You can check the version with the following command.
 ``` 
-docker --version
+$ docker --version
 Docker version 17.06.1-ce, build 874a737
 ```
 
