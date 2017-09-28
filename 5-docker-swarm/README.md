@@ -33,23 +33,12 @@ To add a worker to this swarm, run the following command:
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 ```
 
-
 > This set the node's docker daemon to swarm mode and output the `swarm join` command you'll need for other nodes to join this swarm. Copy it to your clipboard; you'll need it soon.
-
-
-But firts, lets verify the swarm status by doing.
-
-```
-docker info
-```
-You can see under `Swarm` the swarm state.
 
 
 ### Add the Workers
 
 Now let's make both worker nodes join the swarm cluster: run the command you just copied into your clipboard inside each of the worker nodes 
-
-See now that your swarm is 3 nodes big:
 
 ```
 docker node ls
@@ -62,7 +51,7 @@ You now have a 3-node working swarm cluster 😎
 
 ### Our first swarm service 
 
-We are going to start by creating a service using 5 instnces of **nginx** 
+We are going to start by creating a service:
 
 ```
 $ docker service create --replicas 5 -p 80:80 --name web nginx:1.12
@@ -86,7 +75,7 @@ Now lets check that we have the service scaled up
 ```
 $ docker service ls
 ID                  NAME                MODE                REPLICAS            IMAGE     PORTS
-x7ag3q8hwxi0        web                 replicated          8/8                 nginx:latest     *:80->80/tcp
+x7ag3q8hwxi0        web                 replicated          8/8                 nginx:1.12     *:80->80/tcp
 ```
 
 You can check in which nodes the containers are running with the `docker service ps` command.
