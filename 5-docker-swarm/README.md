@@ -131,7 +131,7 @@ r
 wpwocg35s2umag99w8wqctqgc     node2               Ready               Active
 43rdiv13nznic9bm1ml5fgzwn     node3               Ready                Active
 $
-
+```
 
 As you can see that their AVAILABILITY is set to READY. When the node is active, it can receive new tasks:
 * during a service update to scale up
