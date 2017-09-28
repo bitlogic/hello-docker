@@ -12,8 +12,9 @@ Containers run apps natively on the host machine’s kernel. They have better pe
 
 Consider this diagram comparing virtual machines to containers:
 
-Virtual Machine diagram
-Virtual machine stack example
+![VM vs Containers](./vm-containers.png) 
+
+
 
 Virtual machines run guest operating systems—note the OS layer in each box. This is resource intensive, and the resulting disk image and application state is an entanglement of OS settings, system-installed dependencies, OS security patches, and other easy-to-lose, hard-to-replicate ephemera.
 

@@ -23,13 +23,7 @@ Let's get this swarm started. Now choose which is going to be your manager node 
 
 ```
 $ docker swarm init --advertise-addr <manager node's ip>
-```
 
-You should see something like the following:
-
-```
-[node1] (local) root@10.0.203.3 ~
-$ docker swarm init --advertise-addr 10.0.203.3
 Swarm initialized: current node (v51je0ntr6h0o92bbmvuka34o) is now a manager.
 
 To add a worker to this swarm, run the following command:
