@@ -151,7 +151,6 @@ Now lets check the rolling update status of the service with `docker service ps`
 $ docker service ps web
 ```
 
-
 ### Tango Down 
 
 OK, now lets see what happens if one of the `active` and `available` node crash or is shut down by accident.
