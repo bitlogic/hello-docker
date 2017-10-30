@@ -132,7 +132,7 @@ $ docker node update --availability drain node2
 Now check how the node2 have been drained and all their containers have been moved to other nodes. 
 
 ```
-$ docker service web ls
+$ docker service ps web
 ```
 
 
