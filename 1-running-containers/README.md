@@ -47,7 +47,7 @@ Now let's get serious. Let's run a full-fledged Ubuntu container:
 First we are going to pull a *specific* Ubuntu docker image from the registry.
 
 ```
-$ docker pull ubuntu:14.04
+$ docker pull ubuntu:20.04
 ```
 
 🤔 it looks like it downloaded something, but not sure what...
@@ -60,7 +60,7 @@ As you can see, now we have the ubuntu:14.04 image in our host and we can create
 
 
 ```
-$ docker container run -it ubuntu:14.04
+$ docker container run -it ubuntu:20.04
 ```
 
 Cool, we're inside the container! `-it` specifies you want to go into the interactive mode (TBH, `i` is interactive and `t` is for docker to allocate a pseudo TTY interface for the interaction)
