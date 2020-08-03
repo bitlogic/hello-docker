@@ -20,7 +20,7 @@ To start with the tutorial you'll need to have `docker 19.03` or later installed
 You can check the version with the following command.
 ``` 
 $ docker --version
-Docker version 17.03.2, build 6a30dfc
+Docker version 19.03.2, build 6a30dfc
 ```
 
 
