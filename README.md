@@ -15,15 +15,13 @@ So, let's get started in the [orientation section](https://github.com/bitlogic/h
 
 ### Pre Requisites
 
-To start with the tutorial you'll need to have `docker 17.06` or later installed in your machine.  So go ahead and [install the latest stable version here](https://docs.docker.com/engine/installation/)
+To start with the tutorial you'll need to have `docker 19.03` or later installed in your machine.  So go ahead and [install the latest stable version here](https://docs.docker.com/engine/installation/)
 
 You can check the version with the following command.
 ``` 
 $ docker --version
-Docker version 17.06.1-ce, build 874a737
+Docker version 17.03.2, build 6a30dfc
 ```
-
-> The steps provided here are going to asume that you install docker on your localhost but using [`play-with-docker`](http://play-with-docker.com) is a valid and probably recommended alternative.
 
 
 ## Contributing
