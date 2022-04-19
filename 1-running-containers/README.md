@@ -27,13 +27,13 @@ Easy, right? Let's take a look at what has just happened behind the scenes...
 Now lets start exploring and check the container 
 
 ```
-$ docker container ps
+$ docker ps
 ```
 
 🤔 not there... Let's add the `-a` flag
 
 ```
-$ docker container ps -a
+$ docker ps -a
 ```
 
 😀 there you are! The -a option list not only the `running` containers but also the containers that have been finished.  This might become handy if you want to examine them.
@@ -56,11 +56,11 @@ $ docker pull ubuntu:20.04
 $ docker images
 ```
 
-As you can see, now we have the ubuntu:14.04 image in our host and we can create our container.
+As you can see, now we have the ubuntu:20.04 image in our host and we can create our container.
 
 
 ```
-$ docker container run -it ubuntu:20.04
+$ docker run -it ubuntu:20.04
 ```
 
 Cool, we're inside the container! `-it` specifies you want to go into the interactive mode (TBH, `i` is interactive and `t` is for docker to allocate a pseudo TTY interface for the interaction)
@@ -76,7 +76,7 @@ After toying around just `exit`.
 
 So the way containers work is that there is one single main process that gets assigned `pid 1`, which runs as the containers starts, and as soon as that process exits, the container is stopped, even if there were other processes running inside of it.
 
-You may also have noticed that the first time you ran `docker run ubuntu:14.04` it took a while, but the second time it was immediate. What really happened is that docker tried to run a container based on the `ubuntu:14.04` image, and since it didn't have it locally, it pulled it from the public repository. 
+You may also have noticed that the first time you ran `docker run ubuntu:20.04` it took a while, but the second time it was immediate. What really happened is that docker tried to run a container based on the `ubuntu:20.04` image, and since it didn't have it locally, it pulled it from the public repository. 
 
 
 ## Running, detaching and attaching to containers
@@ -115,7 +115,7 @@ If you now do `docker ps` you'll notice the `db` container is still running. It 
 Now let's run a web app in _another_ container.
 
 ```
-$ docker container run --name webapp -d -P seqvence/static-site
+$ docker run --name webapp -d -P seqvence/static-site
 ```
 
 The -P command is basically making docker to automatically bind the internal port that the container is exposing to some available port in your host.
@@ -123,7 +123,7 @@ The -P command is basically making docker to automatically bind the internal por
 So, lets check if the app is running and which ports is exposing.
 
 ```
-$ docker container ps
+$ docker ps
 ```
 
 As you can see under `PORTS`, it seems the app *is* listening in port 80, but... 😮 Of course! That's just the container's _internal_ port! 
@@ -155,13 +155,13 @@ OK,  we know how to start multiple containers so now its time to stop them.
 First, check which containers are running with 
 
 ```
-$ docker container ps
+$ docker ps
 ```
 
 Now to stop a container you can do any of the following. 
 
 ``` 
-$ docker container stop {container id | container name}
+$ docker  stop {container id | container name}
 ```
 
 Great! This command has stopped the containers from running but we still have the containers files in the host. If you want a complete cleanup and remove everything, you should go further and execute the following:
@@ -171,14 +171,12 @@ $ docker container prune
 ```
 The `prune` command will delete all containers so if you check with `docker container ps -a` you will see that there are no more containers on your host.
 
-#### Bonus :trollface: :trollface: :trollface:
+#### Bonus :trollface:
 If you need to look like a **hollywood hacker** with `Docker` you can just run the following command:
 
 ```
-$ docker container run -it jturpin/hollywood hollywood
+$ docker run -it jturpin/hollywood hollywood
 ```
 :grimacing:
-
-
 
 So, That's a wrap for the basics. :bowtie: Let's [move on to the next section](https://github.com/bitlogic/hello-docker/tree/master/2-building-images). :punch:

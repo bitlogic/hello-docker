@@ -6,14 +6,14 @@
 ```
 docker --version                                    # Check the version of docker client
 docker run hello-world                      # If works it means that the platform is OK.
-docker container ps -a                          #list all running and stopped containers
+docker ps -a                          #list all running and stopped containers
 docker pull <image>                                         # Pull image from docker hub
-docker container run -it <image>    #Run image in interactive way (connected to the tty)
-docker container run -P -d <image>                      # -P to bind ports automatically
-docker container run -P -d <image>                             # -d to run in background
-docker container exec -it <container-name>              # connect to a running container
+docker run -it <image>    #Run image in interactive way (connected to the tty)
+docker run -P -d <image>                      # -P to bind ports automatically
+docker run -P -d <image>                             # -d to run in background
+docker exec -it <container-name>              # connect to a running container
 docker logs <container-name>                      # See the logs of particular container
-docker container stop <container-name | id >                        # Stop the container
+docker stop <container-name | id >                        # Stop the container
 ```
 
 ### Running Services
