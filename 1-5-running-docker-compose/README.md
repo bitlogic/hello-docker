@@ -195,15 +195,10 @@ or also:
 
 ```YAML
   massive-admission-api:
-    image: 930137440523.dkr.ecr.sa-east-1.amazonaws.com/massive-admission-api:latest
+    image: massive-admission-api:latest
     environment:
-      - OAUTH_HOST=${OAUTH_HOST}
       - UMS_URL=${UMS_URL}
-      - ACADEMIC_OFFER_URL=${ACADEMIC_OFFER_URL}
-      - ADMISSION_API_URL=${ADMISSION_API_URL}
-      - AFIP_URL=${AFIP_URL}
       - BOOTSTRAP_SERVER=${BOOTSTRAP_SERVER}
-      - OAUTH_URL=${OAUTH_URL}
       - CLIENT_SECRETS_MASSIVE=${CLIENT_SECRETS_MASSIVE}
     networks:
       - algarrobo_alga
