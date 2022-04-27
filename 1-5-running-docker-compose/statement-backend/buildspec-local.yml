@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Build started on `date`
+      - REPOSITORY_URI=statement-backend
+  build:
+    commands: 
+      - echo Building the Docker image...
+      - export CODEARTIFACT_AUTH_TOKEN=`aws --region us-east-1 codeartifact get-authorization-token --domain maven --domain-owner 325542997774 --query authorizationToken --output text`
+      - docker build --build-arg CODEARTIFACT_AUTH_TOKEN -t $REPOSITORY_URI .
+

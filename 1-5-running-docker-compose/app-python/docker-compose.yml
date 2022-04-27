@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  web:
+    image: app-py:latest
+    ports:
+      - "8000:80"
+
+  redis:
+    image: redis:alpine

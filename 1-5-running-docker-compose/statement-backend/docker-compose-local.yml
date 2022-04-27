@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+
+  dbpostgresql:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=mydb
+    networks:
+      - qnet
+
+  statement-backend:
+    image: statement-backend
+    volumes:
+      - ./src/main/resources/:/run/secrets/
+    environment:
+      -  STATEMENT_DS_SECRET_PATH=/run/secrets/statement-postgresql-ds.properties
+      -  STATEMENT_DLL_AUTO=create
+      -  STATEMENT_MOCK_DATA=false
+    ports:
+      - 8080:8080
+    networks:
+      - qnet
+    secrets:
+      - statement-postgresql-ds.properties
+    depends_on:
+      - dbpostgresql
+
+secrets:
+  statement-postgresql-ds.properties:
+    file: ./ds-postgresql-local.properties
+
+networks:
+  qnet:
