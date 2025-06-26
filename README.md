@@ -15,12 +15,12 @@ So, let's get started in the [orientation section](https://github.com/bitlogic/h
 
 ### Pre Requisites
 
-To start with the tutorial you'll need to have `docker 19.03` or later installed in your machine.  So go ahead and [install the latest stable version here](https://docs.docker.com/engine/installation/)
+To start with the tutorial you'll need to have `docker 24.0` or later installed in your machine.  So go ahead and [install the latest stable version here](https://docs.docker.com/engine/installation/)
 
 You can check the version with the following command.
 ``` 
 $ docker --version
-Docker version 19.03.2, build 6a30dfc
+Docker version 27.3.1, build ce12230
 ```
 
 
