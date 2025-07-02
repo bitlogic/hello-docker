@@ -4,6 +4,12 @@ An entry level `docker tutorial` 🐳📚 for anyone who wants to learn how to u
 
 ![Docker Small](./0-orientation/horizontal_small.png) 
 
+## Table of Contents 📋
+
+- [Getting Started 🚀](#getting-started-)
+  - [Pre Requisites ✅](#pre-requisites-)
+- [Contributing 🤝](#contributing-)
+- [License 📄](#license-)
 
 ## Getting Started 🚀
 
