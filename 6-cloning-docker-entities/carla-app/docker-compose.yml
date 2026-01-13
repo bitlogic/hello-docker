@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  carla-original:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: carla-original
+    ports:
+      - "5000:5000"
+    environment:
+      - APP_MODE=original
+      - VERSION=1.0
+    restart: unless-stopped
+    networks:
+      - carla-network
+
+  carla-clone-1:
+    build:
+      context: .
+      dockerfile: Dockerfile.clone
+    container_name: carla-clone-1
+    ports:
+      - "5001:5000"
+    environment:
+      - APP_MODE=clone
+      - VERSION=2.0-clone1
+    restart: unless-stopped
+    networks:
+      - carla-network
+
+  carla-clone-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: carla-clone-2
+    ports:
+      - "5002:5000"
+    environment:
+      - APP_MODE=clone
+      - VERSION=2.0-clone2
+    restart: unless-stopped
+    networks:
+      - carla-network
+
+networks:
+  carla-network:
+    driver: bridge
