@@ -82,6 +82,24 @@ Once the document is accessible, the review will cover:
 - [ ] Timeline is realistic
 - [ ] Success criteria established
 
+### 6. **Workshop/Training Specific** (if applicable)
+- [ ] Learning objectives defined
+- [ ] Target audience identified
+- [ ] Duration and format specified
+- [ ] Prerequisites clearly stated
+- [ ] Hands-on exercises included
+- [ ] Instructor resources provided
+- [ ] Participant materials outlined
+- [ ] Environment setup instructions
+- [ ] Expected outcomes measurable
+
+### 7. **Budget/Resource Planning** (if applicable)
+- [ ] Cost breakdown provided
+- [ ] Resource allocation clear
+- [ ] ROI or value metrics defined
+- [ ] Contingency plans included
+- [ ] Timeline with milestones
+
 ---
 
 ## Feedback Template
@@ -105,15 +123,55 @@ Once reviewed, feedback will be structured as:
 
 ---
 
-## Notes
+## Repository Context
 
-This is a Docker tutorial repository (hello-docker) focused on teaching Docker fundamentals. If the proposal relates to Docker training, infrastructure, or related initiatives for 2026, the review should consider:
+This is the **hello-docker** repository - a Docker 101 workshop by Bitlogic focused on teaching Docker fundamentals to beginners. 
 
-- Alignment with current tutorial structure
-- Technical feasibility
-- Educational value
-- Resource requirements
-- Maintenance implications
+**Current Structure:**
+- 0-orientation: Introduction to containers and Docker platform
+- 1-running-containers: Basic container operations
+- 2-building-images: Creating custom Docker images
+- 3-running-services: Docker services
+- 4-docker-stacks: Stack management
+- 5-docker-swarm: Swarm mode
+
+**Current State:**
+- Tutorial covers Docker 24.0+ (examples show v27.3.1)
+- Progressive learning path from basics to advanced
+- Hands-on approach with practical examples
+- Creative Commons licensed (CC BY-SA 4.0)
+
+**If "Propuesta 2026 BH" relates to this repository, consider:**
+
+### Educational Proposals
+- Does it enhance the learning experience?
+- Is it appropriate for the target audience (beginners)?
+- Does it maintain the hands-on, practical approach?
+- Are examples clear and reproducible?
+
+### Technical Updates
+- Docker version compatibility (currently 24.0+)
+- New Docker features to incorporate
+- Updated best practices
+- Security improvements
+
+### Content Expansion
+- New sections or modules
+- Additional use cases
+- Advanced topics
+- Integration examples
+
+### Infrastructure/Hosting
+- Hosting for workshops
+- Cloud resources needed
+- Budget considerations for 2026
+- Scaling for more participants
+
+### Documentation
+- Translation needs
+- Improved examples
+- Video content
+- Interactive elements
 
 ---
 
