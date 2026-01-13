@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carla's Application - {{ mode|upper }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .mode-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+        
+        .mode-original {
+            background: #4ade80;
+            color: white;
+        }
+        
+        .mode-clone {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .version-badge {
+            background: #667eea;
+            color: white;
+        }
+        
+        .stats {
+            background: #f3f4f6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .stat-value {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .button:hover {
+            background: #764ba2;
+        }
+        
+        .form-group {
+            margin: 15px 0;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #374151;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: none;
+        }
+        
+        .message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+        
+        .message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+        
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .info-box p {
+            color: #1e40af;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👋 ¡Hola! I'm Carla</h1>
+            <div>
+                <span class="mode-badge mode-{{ mode }}">{{ mode|upper }} MODE</span>
+                <span class="mode-badge version-badge">v{{ version }}</span>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <p>
+                <strong>🐳 Docker Cloning Demo:</strong> This is Carla's application, 
+                designed to demonstrate Docker container and image cloning techniques. 
+                {% if mode == 'clone' %}
+                You are viewing a CLONED version of the application!
+                {% else %}
+                You are viewing the ORIGINAL version of the application.
+                {% endif %}
+            </p>
+        </div>
+        
+        <div class="stats">
+            <h3 style="margin-bottom: 15px; color: #374151;">📊 Application Stats</h3>
+            <div class="stat-item">
+                <span class="stat-label">Visitors</span>
+                <span class="stat-value" id="visitor-count">{{ visitor_count }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Mode</span>
+                <span class="stat-value">{{ mode|upper }}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Version</span>
+                <span class="stat-value">{{ version }}</span>
+            </div>
+        </div>
+        
+        <div id="success-message" class="message success"></div>
+        <div id="error-message" class="message error"></div>
+        
+        <button class="button" onclick="recordVisit()">
+            🎉 Record My Visit
+        </button>
+        
+        <form onsubmit="sendMessage(event)">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="Leave a message..." required></textarea>
+            </div>
+            <button type="submit" class="button">
+                💬 Send Message
+            </button>
+        </form>
+        
+        <button class="button" onclick="viewStats()" style="background: #10b981;">
+            📈 View Detailed Stats
+        </button>
+    </div>
+    
+    <script>
+        function showMessage(type, text) {
+            const messageEl = document.getElementById(`${type}-message`);
+            messageEl.textContent = text;
+            messageEl.style.display = 'block';
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 3000);
+        }
+        
+        async function recordVisit() {
+            try {
+                const response = await fetch('/visit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                document.getElementById('visitor-count').textContent = data.total_visitors;
+                showMessage('success', data.message);
+            } catch (error) {
+                showMessage('error', 'Failed to record visit');
+            }
+        }
+        
+        async function sendMessage(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            
+            try {
+                const response = await fetch('/message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, message })
+                });
+                const data = await response.json();
+                showMessage('success', data.message);
+                document.getElementById('name').value = '';
+                document.getElementById('message').value = '';
+            } catch (error) {
+                showMessage('error', 'Failed to send message');
+            }
+        }
+        
+        async function viewStats() {
+            try {
+                const response = await fetch('/stats');
+                const data = await response.json();
+                alert(`
+Application Statistics:
+━━━━━━━━━━━━━━━━━━━━━
+Mode: ${data.mode.toUpperCase()}
+Version: ${data.version}
+Total Visitors: ${data.total_visitors}
+Total Messages: ${data.total_messages}
+━━━━━━━━━━━━━━━━━━━━━
+                `);
+            } catch (error) {
+                showMessage('error', 'Failed to load stats');
+            }
+        }
+    </script>
+</body>
+</html>

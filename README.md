@@ -18,6 +18,17 @@ This **docker tutorial** attempts to drive you through the fundamentals and into
 
 So, let's get started in the [orientation section](https://github.com/bitlogic/hello-docker/tree/master/0-orientation). :punch:
 
+## Tutorial Sections
+
+- **[0-orientation](./0-orientation)** - Understanding Docker basics and architecture
+- **[1-running-containers](./1-running-containers)** - Learn to run your first containers
+- **[2-building-images](./2-building-images)** - Create custom Docker images
+- **[3-running-services](./3-running-services)** - Work with Docker services
+- **[4-docker-stacks](./4-docker-stacks)** - Deploy multi-service applications
+- **[1-5-running-docker-compose](./1-5-running-docker-compose)** - Master Docker Compose
+- **[5-docker-swarm](./5-docker-swarm)** - Scale with Docker Swarm
+- **[6-cloning-docker-entities](./6-cloning-docker-entities)** - Clone and replicate containers and images ⭐ NEW
+
 
 ### Pre Requisites
 

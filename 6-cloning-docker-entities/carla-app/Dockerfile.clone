@@ -1,0 +1,36 @@
+# Dockerfile for a cloned/modified version of Carla's app
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application files
+COPY . .
+
+# THIS IS A CLONE - Set different environment variables
+ENV APP_MODE=clone
+ENV VERSION=2.0
+
+# Add clone-specific labels
+LABEL clone.source="carla-app:original"
+LABEL clone.date="2025-01-13"
+LABEL clone.reason="demonstrating-docker-cloning"
+LABEL maintainer="docker-tutorial"
+
+# Create a clone marker file
+RUN echo "This is a CLONED version of Carla's app - Built $(date)" > /app/build-info.txt
+RUN echo "Clone created for Docker tutorial purposes" > /app/clone-marker.txt
+
+# Expose port
+EXPOSE 5000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD python -c "import requests; requests.get('http://localhost:5000/health')" || exit 1
+
+# Run the application
+CMD ["python", "app.py"]
