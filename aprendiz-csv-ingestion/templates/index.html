@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiz - Importación de Preguntas CSV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .upload-area:hover {
+            border-color: #764ba2;
+            background: #f8f9ff;
+        }
+
+        .upload-area.dragover {
+            background: #f0f2ff;
+            border-color: #764ba2;
+        }
+
+        .upload-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .result.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            opacity: 0.9;
+        }
+
+        .sample-links {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9ff;
+            border-radius: 6px;
+        }
+
+        .sample-links h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .sample-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .sample-links a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background: #f8f9ff;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .error-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        .error-item {
+            padding: 8px;
+            background: #fff3cd;
+            border-left: 3px solid #ffc107;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Aprendiz</h1>
+            <p>Sistema de Importación de Preguntas via CSV</p>
+        </div>
+
+        <div class="card">
+            <h2>Subir Archivo CSV</h2>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📄</div>
+                <p><strong>Arrastra un archivo CSV aquí</strong> o haz clic para seleccionar</p>
+                <p style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                    Tamaño máximo: 16MB
+                </p>
+                <input type="file" id="fileInput" class="file-input" accept=".csv">
+            </div>
+
+            <div id="selectedFile" style="display:none; margin-bottom: 15px;">
+                <strong>Archivo seleccionado:</strong> <span id="fileName"></span>
+            </div>
+
+            <button class="btn" id="uploadBtn" style="display:none;">Importar Preguntas</button>
+
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+
+            <div class="result" id="result"></div>
+
+            <div class="sample-links">
+                <h3>Archivos de Ejemplo</h3>
+                <a href="/samples/sample_questions.csv" download>📥 sample_questions.csv</a>
+                <a href="/samples/sample_questions_advanced.csv" download>📥 sample_questions_advanced.csv</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Estadísticas</h2>
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card">
+                    <h3 id="totalQuestions">-</h3>
+                    <p>Total Preguntas</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalImports">-</h3>
+                    <p>Importaciones</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 20px;">Importaciones Recientes</h3>
+            <div id="recentImports"></div>
+        </div>
+
+        <div class="card">
+            <h2>Formato del CSV</h2>
+            <p style="margin-bottom: 15px;">El archivo CSV debe contener las siguientes columnas:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Columna</th>
+                        <th>Requerido</th>
+                        <th>Descripción</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>question_text</code></td>
+                        <td>✅ Sí</td>
+                        <td>Texto de la pregunta</td>
+                        <td>¿Cuál es la capital de Francia?</td>
+                    </tr>
+                    <tr>
+                        <td><code>answer_options</code></td>
+                        <td>✅ Sí</td>
+                        <td>Opciones de respuesta (JSON)</td>
+                        <td>["París", "Londres", "Madrid", "Roma"]</td>
+                    </tr>
+                    <tr>
+                        <td><code>correct_answer</code></td>
+                        <td>✅ Sí</td>
+                        <td>Respuesta correcta</td>
+                        <td>París</td>
+                    </tr>
+                    <tr>
+                        <td><code>category</code></td>
+                        <td>❌ No</td>
+                        <td>Categoría de la pregunta</td>
+                        <td>Geografía</td>
+                    </tr>
+                    <tr>
+                        <td><code>difficulty</code></td>
+                        <td>❌ No</td>
+                        <td>Dificultad (easy, medium, hard, expert)</td>
+                        <td>easy</td>
+                    </tr>
+                    <tr>
+                        <td><code>explanation</code></td>
+                        <td>❌ No</td>
+                        <td>Explicación de la respuesta</td>
+                        <td>París es la capital de Francia desde 987.</td>
+                    </tr>
+                    <tr>
+                        <td><code>tags</code></td>
+                        <td>❌ No</td>
+                        <td>Etiquetas separadas por comas</td>
+                        <td>europa, capitales, geografía</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const selectedFile = document.getElementById('selectedFile');
+        const fileName = document.getElementById('fileName');
+        const progressBar = document.getElementById('progressBar');
+        const progressBarFill = document.getElementById('progressBarFill');
+        const result = document.getElementById('result');
+
+        let selectedFileObj = null;
+
+        // Load stats on page load
+        loadStats();
+
+        // Click to upload
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        // File selection
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            if (!file.name.endsWith('.csv')) {
+                showResult('error', 'Por favor selecciona un archivo CSV válido.');
+                return;
+            }
+
+            selectedFileObj = file;
+            fileName.textContent = file.name;
+            selectedFile.style.display = 'block';
+            uploadBtn.style.display = 'inline-block';
+            result.style.display = 'none';
+        }
+
+        // Upload button
+        uploadBtn.addEventListener('click', uploadFile);
+
+        async function uploadFile() {
+            if (!selectedFileObj) return;
+
+            const formData = new FormData();
+            formData.append('file', selectedFileObj);
+
+            uploadBtn.disabled = true;
+            progressBar.style.display = 'block';
+            progressBarFill.style.width = '50%';
+            result.style.display = 'none';
+
+            try {
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                progressBarFill.style.width = '100%';
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    let message = `✅ Importación exitosa!<br>`;
+                    message += `Total registros: ${data.statistics.total_records}<br>`;
+                    message += `Importados: ${data.statistics.successful_imports}<br>`;
+                    if (data.statistics.failed_imports > 0) {
+                        message += `Fallidos: ${data.statistics.failed_imports}<br>`;
+                        if (data.statistics.errors.length > 0) {
+                            message += `<div class="error-list">`;
+                            data.statistics.errors.forEach(error => {
+                                message += `<div class="error-item">${error}</div>`;
+                            });
+                            message += `</div>`;
+                        }
+                    }
+                    showResult('success', message);
+                    loadStats(); // Refresh stats
+                } else {
+                    showResult('error', `❌ Error: ${data.error || 'Error desconocido'}`);
+                }
+            } catch (error) {
+                showResult('error', `❌ Error de conexión: ${error.message}`);
+            } finally {
+                uploadBtn.disabled = false;
+                setTimeout(() => {
+                    progressBar.style.display = 'none';
+                    progressBarFill.style.width = '0%';
+                }, 1000);
+            }
+        }
+
+        function showResult(type, message) {
+            result.className = `result ${type}`;
+            result.innerHTML = message;
+            result.style.display = 'block';
+        }
+
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/stats');
+                const data = await response.json();
+
+                document.getElementById('totalQuestions').textContent = data.total_questions;
+                document.getElementById('totalImports').textContent = data.recent_imports.length;
+
+                // Recent imports table
+                const importsContainer = document.getElementById('recentImports');
+                if (data.recent_imports.length > 0) {
+                    let table = '<table><thead><tr><th>Archivo</th><th>Total</th><th>Exitosos</th><th>Fallidos</th><th>Fecha</th></tr></thead><tbody>';
+                    data.recent_imports.forEach(imp => {
+                        const date = new Date(imp.imported_at).toLocaleString('es-ES');
+                        table += `<tr>
+                            <td>${imp.filename}</td>
+                            <td>${imp.total_records}</td>
+                            <td>${imp.successful_imports}</td>
+                            <td>${imp.failed_imports}</td>
+                            <td>${date}</td>
+                        </tr>`;
+                    });
+                    table += '</tbody></table>';
+                    importsContainer.innerHTML = table;
+                } else {
+                    importsContainer.innerHTML = '<p style="color: #666;">No hay importaciones recientes.</p>';
+                }
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+    </script>
+</body>
+</html>
