@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  fermat-verifier:
+    build: .
+    image: fermat-verifier:latest
+    container_name: fermat-last-theorem
+    environment:
+      - PYTHONUNBUFFERED=1
+    # Para ejecutar con un límite mayor, descomentar y modificar:
+    # command: python fermat_verifier.py 200
